@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="row">
+        <br />
+        <input [(ngModel)]="titre" name="titre" type="text" class="form-control" placeholder="Rechercher" />
+        <div *ngFor="let element of categories" class="col-md-4" style="margin-bottom: 20px">
+            <!--<div *ngFor="let element of categories | filter:titre" class="col-md-4" style="margin-bottom: 20px">-->
+
+          <!--<div *ngIf="element.title.toLowerCase() == titre.toLowerCase() || titre == '' ">-->  
+            <img [src]="element.image" alt="Grand électroménager" class="img-fluid h-50 w-75"
+                (click)="onImageClick(element.description)" />
+            <h3>{{ element.title | uppercase }}</h3>
+            <!--<button class="btn btn-primary" [hidden]="element.available == false">Voir produits</button>-->
+            <button class="btn btn-primary" *ngIf="element.available; else elseBlock">
+                Voir produits
+            </button>
+            <ng-template #elseBlock> Catégorie non disponible </ng-template>
+
+            <!--<h3 *ngIf= "!element.available ">Catégorie non disponible </h3>-->  
+           <!-- </div>-->
+           <div appHighlight>
+            Passez la souris sur ce texte pour le surligner.
+          </div>
+        </div>
+    </div>
+</div>
