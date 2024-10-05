@@ -4,4 +4,15 @@
     padding: 10px;
     border: 1px solid black;
   }
-  
+
+
+  .highlight1 {
+    color: red;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}

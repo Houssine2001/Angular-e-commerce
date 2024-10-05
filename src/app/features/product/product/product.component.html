@@ -1,1 +1,23 @@
-<p>product works!</p>
+<div class="container">
+    <div class="row">
+        <br />
+        Price :  <input class="form-control" name="searchPrice" [(ngModel)]="price">
+        <div *ngFor="let element of listProducts "  class="col-md-4"  style="margin-bottom: 20px">     
+
+            <img [src]="element.image" alt="Grand électroménager" class="img-fluid h-50 w-75"/>
+            <h5 [ngClass]="{'text-danger': element.nb_like >= 10 , 'highlight1': element.nb_like >= 10}" >{{element.name}}</h5>
+            <h5>{{element.price}}</h5>
+            
+            <button class="btn btn-primary" (click)="nbreLikes(element)">
+                Like
+            </button>
+            <div>
+                <h5>
+                    Nombre de likes : {{element.nb_like}}
+                </h5>
+            </div>
+           
+  
+        </div>
+    </div>
+</div>
